@@ -3,24 +3,70 @@
    ============================== */
 
 header {
+    position: relative;
+    overflow: hidden;
+
     background-color: #071522;
     color: #f5f7fa;
+
     padding: 50px 20px 30px;
     text-align: center;
 
     border-bottom: 1px solid #c0c7ce;
 }
 
+
+/* Geometric background shapes */
+
+header::before {
+    content: "";
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    border: 1px solid rgba(192, 199, 206, 0.20);
+
+    transform: rotate(45deg);
+
+    top: -220px;
+    left: -100px;
+}
+
+
+header::after {
+    content: "";
+    position: absolute;
+
+    width: 350px;
+    height: 350px;
+
+    border: 1px solid rgba(201, 162, 39, 0.20);
+
+    transform: rotate(45deg);
+
+    top: -250px;
+    right: -120px;
+}
+
+
+/* Keep header content above geometric shapes */
+
 .header-content {
+    position: relative;
+    z-index: 2;
+
     max-width: 1100px;
     margin: 0 auto;
 }
+
 
 h1 {
     margin: 0;
     font-size: 2.8rem;
     letter-spacing: 3px;
 }
+
 
 .tagline {
     color: #c0c7ce;
@@ -40,6 +86,7 @@ nav {
     align-items: center;
     gap: 35px;
 }
+
 
 nav a {
     position: relative;
@@ -70,6 +117,7 @@ nav a::before {
 nav a:hover {
     color: #c9a227;
 }
+
 
 nav a:hover::before {
     color: #c9a227;
