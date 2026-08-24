@@ -1,75 +1,76 @@
 /* ==============================
-   Global Styles
-   ============================== */
-
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    color: #f5f7fa;
-
-    background-color: #0b1f33;
-
-    background-image:
-        linear-gradient(
-            135deg,
-            transparent 0%,
-            rgba(192, 199, 206, 0.08) 50%,
-            transparent 50%
-        ),
-        linear-gradient(
-            45deg,
-            transparent 0%,
-            rgba(201, 162, 39, 0.08) 50%,
-            transparent 50%
-        );
-
-    background-size: 300px 300px;
-}
-
-
-/* ==============================
    Header
    ============================== */
 
 header {
-    background-color: rgba(7, 21, 34, 0.95);
+    background-color: #071522;
     color: #f5f7fa;
-    padding: 40px;
+    padding: 50px 20px 30px;
     text-align: center;
+
+    border-bottom: 1px solid #c0c7ce;
+}
+
+.header-content {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2.8rem;
+    letter-spacing: 3px;
+}
+
+.tagline {
+    color: #c0c7ce;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    margin: 15px 0 35px;
 }
 
 
 /* ==============================
-   Main Content
+   Navigation
    ============================== */
 
-main {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 0 20px;
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+}
+
+nav a {
+    position: relative;
+
+    color: #c0c7ce;
+    text-decoration: none;
+
+    font-size: 1rem;
+    letter-spacing: 1px;
+
+    transition: color 0.3s ease;
 }
 
 
-/* ==============================
-   Content Sections
-   ============================== */
+/* Geometric diamond */
 
-section {
-    background-color: rgba(245, 247, 250, 0.96);
-    color: #0b1f33;
+nav a::before {
+    content: "◇";
+    color: #c0c7ce;
+    margin-right: 7px;
 
-    padding: 30px;
-    margin-bottom: 30px;
-
-    border-radius: 8px;
+    transition: color 0.3s ease;
 }
 
 
-/* ==============================
-   Headings
-   ============================== */
+/* Hover effect */
 
-h2 {
-    border-left: 4px solid #c9a227;
-    padding-left: 12px;
+nav a:hover {
+    color: #c9a227;
+}
+
+nav a:hover::before {
+    color: #c9a227;
 }
