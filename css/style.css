@@ -1,89 +1,237 @@
-/* ==============================
-   Header
-   ============================== */
+/* =========================================
+   GLOBAL PAGE STYLES
+   ========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    background-color: #0b2a4a;
+
+    color: #f5f7fa;
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* =========================================
+   GEOMETRIC SITE FRAME
+   ========================================= */
+
+.site-frame {
+    position: relative;
+
+    min-height: 100vh;
+
+    margin: 18px;
+
+    background-color: #0b2a4a;
+
+    border: 2px solid #c0c7ce;
+
+    overflow: hidden;
+}
+
+
+/* =========================================
+   TOP GEOMETRIC BORDER
+   ========================================= */
+
+.site-frame::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 55px;
+
+    background:
+        linear-gradient(
+            135deg,
+            transparent 42%,
+            #c0c7ce 43%,
+            #c0c7ce 45%,
+            transparent 46%
+        ) 0 0 / 55px 55px repeat-x;
+
+    border-bottom: 1px solid #c0c7ce;
+
+    pointer-events: none;
+
+    z-index: 20;
+}
+
+
+/* =========================================
+   BOTTOM GEOMETRIC BORDER
+   ========================================= */
+
+.site-frame::after {
+    content: "";
+
+    position: absolute;
+
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    height: 55px;
+
+    background:
+        linear-gradient(
+            45deg,
+            transparent 42%,
+            #c0c7ce 43%,
+            #c0c7ce 45%,
+            transparent 46%
+        ) 0 0 / 55px 55px repeat-x;
+
+    border-top: 1px solid #c0c7ce;
+
+    pointer-events: none;
+
+    z-index: 20;
+}
+
+
+/* =========================================
+   LEFT AND RIGHT GEOMETRIC BORDERS
+   ========================================= */
+
+.side-pattern {
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+
+    width: 55px;
+
+    pointer-events: none;
+
+    z-index: 20;
+}
+
+
+/* LEFT SIDE */
+
+.left-pattern {
+    left: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            transparent 42%,
+            #c0c7ce 43%,
+            #c0c7ce 45%,
+            transparent 46%
+        ) 0 0 / 55px 55px repeat-y;
+
+    border-right: 1px solid #c0c7ce;
+}
+
+
+/* RIGHT SIDE */
+
+.right-pattern {
+    right: 0;
+
+    background:
+        linear-gradient(
+            225deg,
+            transparent 42%,
+            #c0c7ce 43%,
+            #c0c7ce 45%,
+            transparent 46%
+        ) 0 0 / 55px 55px repeat-y;
+
+    border-left: 1px solid #c0c7ce;
+}
+
+
+/* =========================================
+   HEADER
+   ========================================= */
 
 header {
     position: relative;
-    overflow: hidden;
 
     background-color: #071522;
+
     color: #f5f7fa;
 
-    padding: 50px 20px 30px;
+    padding: 70px 80px 45px;
+
     text-align: center;
 
     border-bottom: 1px solid #c0c7ce;
+
+    z-index: 5;
 }
 
-
-/* Geometric background shapes */
-
-header::before {
-    content: "";
-    position: absolute;
-
-    width: 300px;
-    height: 300px;
-
-    border: 1px solid rgba(192, 199, 206, 0.20);
-
-    transform: rotate(45deg);
-
-    top: -220px;
-    left: -100px;
-}
-
-
-header::after {
-    content: "";
-    position: absolute;
-
-    width: 350px;
-    height: 350px;
-
-    border: 1px solid rgba(201, 162, 39, 0.20);
-
-    transform: rotate(45deg);
-
-    top: -250px;
-    right: -120px;
-}
-
-
-/* Keep header content above geometric shapes */
 
 .header-content {
     position: relative;
-    z-index: 2;
 
     max-width: 1100px;
+
     margin: 0 auto;
+
+    z-index: 6;
 }
 
+
+/* =========================================
+   NAME
+   ========================================= */
 
 h1 {
     margin: 0;
+
     font-size: 2.8rem;
+
     letter-spacing: 3px;
+
+    color: #f5f7fa;
 }
 
+
+/* =========================================
+   TAGLINE
+   ========================================= */
 
 .tagline {
-    color: #c0c7ce;
-    font-size: 1rem;
-    letter-spacing: 2px;
     margin: 15px 0 35px;
+
+    color: #c0c7ce;
+
+    font-size: 1rem;
+
+    letter-spacing: 2px;
 }
 
 
-/* ==============================
-   Navigation
-   ============================== */
+/* =========================================
+   NAVIGATION
+   ========================================= */
 
 nav {
     display: flex;
+
     justify-content: center;
+
     align-items: center;
+
     gap: 35px;
 }
 
@@ -92,12 +240,16 @@ nav a {
     position: relative;
 
     color: #c0c7ce;
+
     text-decoration: none;
 
     font-size: 1rem;
+
     letter-spacing: 1px;
 
-    transition: color 0.3s ease;
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
 }
 
 
@@ -105,20 +257,207 @@ nav a {
 
 nav a::before {
     content: "◇";
+
     color: #c0c7ce;
+
     margin-right: 7px;
 
     transition: color 0.3s ease;
 }
 
 
-/* Hover effect */
+/* Navigation hover */
 
 nav a:hover {
     color: #c9a227;
+
+    transform: translateY(-2px);
 }
 
 
 nav a:hover::before {
     color: #c9a227;
+}
+
+
+/* =========================================
+   MAIN CONTENT
+   ========================================= */
+
+main {
+    position: relative;
+
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+    padding: 60px 80px 90px;
+
+    z-index: 5;
+}
+
+
+/* =========================================
+   SECTION HEADINGS
+   ========================================= */
+
+section h2 {
+    position: relative;
+
+    margin-bottom: 30px;
+
+    color: #f5f7fa;
+
+    font-size: 1.8rem;
+
+    letter-spacing: 2px;
+}
+
+
+/* Gold geometric accent */
+
+section h2::before {
+    content: "◇";
+
+    color: #c9a227;
+
+    margin-right: 10px;
+}
+
+
+/* Silver line beneath heading */
+
+section h2::after {
+    content: "";
+
+    display: block;
+
+    width: 100%;
+
+    height: 1px;
+
+    margin-top: 12px;
+
+    background-color: #c0c7ce;
+}
+
+
+/* =========================================
+   PROJECT CARDS
+   ========================================= */
+
+.project-card {
+    position: relative;
+
+    background-color: #071522;
+
+    border: 1px solid #c0c7ce;
+
+    padding: 30px;
+
+    margin-bottom: 30px;
+
+    transition:
+        border-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+/* Gold corner accent */
+
+.project-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: -1px;
+    left: -1px;
+
+    width: 25px;
+    height: 25px;
+
+    border-top: 2px solid #c9a227;
+
+    border-left: 2px solid #c9a227;
+}
+
+
+.project-card:hover {
+    border-color: #c9a227;
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
+footer {
+    position: relative;
+
+    background-color: #071522;
+
+    color: #c0c7ce;
+
+    padding: 40px 80px;
+
+    text-align: center;
+
+    border-top: 1px solid #c0c7ce;
+
+    z-index: 5;
+}
+
+
+/* =========================================
+   RESPONSIVE DESIGN
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    .site-frame {
+        margin: 8px;
+    }
+
+
+    header {
+        padding: 60px 55px 35px;
+    }
+
+
+    h1 {
+        font-size: 2.1rem;
+    }
+
+
+    .tagline {
+        font-size: 0.8rem;
+
+        letter-spacing: 1px;
+
+        line-height: 1.6;
+    }
+
+
+    nav {
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+
+    main {
+        padding: 50px 60px 80px;
+    }
+
+
+    footer {
+        padding: 35px 60px;
+    }
+
+
+    .side-pattern {
+        width: 35px;
+    }
 }
