@@ -40,6 +40,9 @@ body {
     border: 2px solid #c0c7ce;
 
     overflow: hidden;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 
